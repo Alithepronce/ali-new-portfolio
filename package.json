@@ -1,0 +1,9 @@
+{
+  "name": "ali-new-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'No build step needed' && mkdir -p dist && cp index.html dist/"
+  }
+}
