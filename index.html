@@ -3,55 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علي الموسوي | معرض الأعمال الشخصي</title>
+    <title>علي الموسوي | البورتفوليو الشخصي</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#8B0000',
+                        brandGold: '#D4A843',
+                        brandDark: '#121212',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #0b0f19;
+            background-color: #0c0c0c;
             color: #ffffff;
         }
-        .text-brand-gold { color: #D4A843; }
-        .bg-brand-red { background-color: #8B0000; }
-        .border-brand-gold { border-color: #D4A843; }
+        .glass {
+            background: rgba(139, 0, 0, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 168, 67, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #D4A843 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
-    <!-- Header -->
-    <header class="p-6 max-w-6xl mx-auto w-full flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-wider text-brand-gold">
-            علي الموسوي
+<body class="min-h-screen flex flex-col justify-between selection:bg-brandGold selection:text-brandDark">
+
+    <!-- Header / Navbar -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+        <div class="flex items-center space-x-3 space-x-reverse">
+            <div class="w-10 h-10 rounded-lg bg-brandRed flex items-center justify-center border border-brandGold">
+                <span class="text-brandGold font-bold text-xl">ع</span>
+            </div>
+            <span class="text-white font-bold tracking-wide text-lg">مكتب الموسوي</span>
         </div>
-        <nav class="space-x-4 space-x-reverse text-sm font-semibold text-gray-300">
-            <a href="#about" class="hover:text-brand-gold transition">من أنا</a>
-            <a href="#projects" class="hover:text-brand-gold transition">المشاريع</a>
-            <a href="#contact" class="hover:text-brand-gold transition">اتصل بي</a>
+        <nav class="hidden md:flex space-x-8 space-x-reverse text-sm font-semibold">
+            <a href="#about" class="text-gray-300 hover:text-brandGold transition">من أنا</a>
+            <a href="#projects" class="text-gray-300 hover:text-brandGold transition">المشاريع</a>
+            <a href="#contact" class="text-gray-300 hover:text-brandGold transition">تواصل معي</a>
         </nav>
+        <div>
+            <a href="#contact" class="px-5 py-2 rounded-full border border-brandGold text-brandGold hover:bg-brandGold hover:text-black transition text-sm font-bold">تواصل مباشر</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <main class="max-w-4xl mx-auto px-6 py-20 text-center flex-grow flex flex-col justify-center items-center">
-        <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            مرحباً، أنا <span class="text-brand-gold">علي الموسوي</span> <br>
-            أصنع حلولاً تقنية مبتكرة للمستقبل
-        </h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
-            مستشار ومطور برمجيات أركز على بناء وتصميم الأنظمة السحابية المتقدمة، مع تحسين تجربة المستخدم وأمن المعلومات بأعلى المعايير.
-        </p>
-        <div class="flex gap-4">
-            <a href="#projects" class="bg-brand-red text-white px-8 py-3 rounded-lg font-bold hover:bg-red-800 transition shadow-lg">
-                شاهد أعمالي
-            </a>
-            <a href="#contact" class="border border-brand-gold text-brand-gold px-8 py-3 rounded-lg font-bold hover:bg-brand-gold hover:text-black transition">
-                تواصل معي
-            </a>
+    <main class="flex-grow flex items-center justify-center px-6 py-12">
+        <div class="max-w-4xl w-full text-center space-y-8">
+            <div class="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 rounded-full bg-brandRed/20 border border-brandRed/50 text-brandGold text-xs font-semibold mb-4">
+                <span>✨ البورتفوليو الشخصي الجديد</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                أهلاً بك، أنا <span class="text-gradient">علي الموسوي</span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                مؤسس ورئيس <span class="text-brandGold font-semibold">مكتب الموسوي للخدمات البرمجية</span>. نقود التحول الرقمي ونصنع حلولاً تقنية مبتكرة ومخصصة تلبي تطلعات أعمالكم بأعلى معايير الأمان والجودة.
+            </p>
+
+            <!-- Cards / Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
+                <div class="glass p-6 rounded-2xl text-right hover:border-brandGold/40 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brandRed/20 flex items-center justify-center text-brandGold text-xl font-bold mb-4">🛡️</div>
+                    <h3 class="text-lg font-bold text-white mb-2">الأمان الرقمي</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">تطبيق أعلى معايير الحماية لضمان سلامة بياناتكم وأنظمتكم البرمجية.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl text-right hover:border-brandGold/40 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brandRed/20 flex items-center justify-center text-brandGold text-xl font-bold mb-4">💻</div>
+                    <h3 class="text-lg font-bold text-white mb-2">التطوير الاحترافي</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">بناء وتطوير المواقع والأنظمة باستخدام أحدث التقنيات كـ Python و Supabase.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl text-right hover:border-brandGold/40 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brandRed/20 flex items-center justify-center text-brandGold text-xl font-bold mb-4">🚀</div>
+                    <h3 class="text-lg font-bold text-white mb-2">الأتمتة والذكاء</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">ابتكار بوتات ذكية وأنظمة أتمتة ترفع من كفاءة وإنتاجية أعمالكم اليومية.</p>
+                </div>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-8">
+                <a href="https://github.com/Alithepronce" target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-brandRed hover:bg-brandRed/80 text-white font-bold rounded-xl border border-brandGold transition shadow-lg shadow-brandRed/20 text-center">
+                    زيارة حساب GitHub
+                </a>
+                <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-transparent hover:bg-white/5 text-gray-300 font-semibold rounded-xl border border-white/10 transition text-center">
+                    عرض المشاريع
+                </a>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
-        © 2026 مكتب الموسوي للخدمات البرمجية. جميع الحقوق محفوظة.
+    <footer class="w-full border-t border-white/5 py-8 text-center text-xs text-gray-500">
+        <p>© 2026 مكتب الموسوي للخدمات البرمجية. جميع الحقوق محفوظة.</p>
     </footer>
+
 </body>
 </html>
